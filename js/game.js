@@ -2,18 +2,29 @@ var gameModule = (function(){
 	var ballX = 100,
 		ballY = 100,
 		ballR = 50;
+
+		var maxWidth
+          , maxHeight
+          , maxR;
+
 	function start() {
 		var canvas = document.getElementById("cover");
 
 		var ctx = canvas.getContext("2d");
 
-		canvas.width = 480;
-		canvas.height = 640;
+		var background = Sizzle('#game')[0],
+                        rect = background.getBoundingClientRect();
+		canvas.width = rect.width;
+		canvas.height = rect.height;
 
-		ballX = Math.floor(Math.random() * 200);
-		ballY = Math.floor(Math.random() * 300);
-        ballR = Math.floor(Math.random() * 100) + 30;
-        
+		maxWidth = rect.width;
+        maxHeight = rect.height;
+        maxR = (rect.height > rect.width) ? rect.width / 2 : rect.height / 2;
+
+		ballX = Math.floor(Math.random() * maxWidth);
+		ballY = Math.floor(Math.random() * maxHeight);
+        ballR = Math.floor(Math.random() * maxR) + 30;
+
 		ctx.fillStyle = 'black';
 		ctx.beginPath();
 		ctx.arc(ballX, ballY, ballR, 0, Math.PI * 2, true);
