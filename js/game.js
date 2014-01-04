@@ -10,6 +10,10 @@ var gameModule = (function(){
 		canvas.width = 480;
 		canvas.height = 640;
 
+		ballX = Math.floor(Math.random() * 200);
+		ballY = Math.floor(Math.random() * 300);
+        ballR = Math.floor(Math.random() * 100) + 30;
+        
 		ctx.fillStyle = 'black';
 		ctx.beginPath();
 		ctx.arc(ballX, ballY, ballR, 0, Math.PI * 2, true);
