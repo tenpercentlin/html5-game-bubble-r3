@@ -1,11 +1,18 @@
-var canvas = document.getElementById("cover");
+var gameModule = (function(){
+	function start() {
+		var canvas = document.getElementById("cover");
 
-var ctx = canvas.getContext("2d");
+		var ctx = canvas.getContext("2d");
 
-canvas.width = 480;
-canvas.height = 640;
+		canvas.width = 480;
+		canvas.height = 640;
 
-ctx.fillStyle = 'black';
-ctx.beginPath();
-ctx.arc(100, 100, 50, 0, Math.PI * 2, true);
-ctx.fill();
+		ctx.fillStyle = 'black';
+		ctx.beginPath();
+		ctx.arc(100, 100, 50, 0, Math.PI * 2, true);
+		ctx.fill();
+	}
+	return	{
+		start:start
+	}
+})();

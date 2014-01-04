@@ -7,6 +7,7 @@ window.addEventListener("load", function() {
                 "js/jquery.js"
             ],
             complete : function() {
+            	gameModule.start();
                 /*
                 alert("Ready");
                 $( "#cover" ).hover(function()
