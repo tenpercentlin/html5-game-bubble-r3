@@ -1,4 +1,7 @@
 var gameModule = (function(){
+	var ballX = 100,
+		ballY = 100,
+		ballR = 50;
 	function start() {
 		var canvas = document.getElementById("cover");
 
@@ -9,7 +12,7 @@ var gameModule = (function(){
 
 		ctx.fillStyle = 'black';
 		ctx.beginPath();
-		ctx.arc(100, 100, 50, 0, Math.PI * 2, true);
+		ctx.arc(ballX, ballY, ballR, 0, Math.PI * 2, true);
 		ctx.fill();
 
 		document.getElementById("game")
@@ -20,6 +23,23 @@ var gameModule = (function(){
 
 	function touchEvent(evt) {
                 console.log('clicked: ' + evt.clientX + " , " + evt.clientY);
+        var x1, 
+            x2,
+            y1,
+            y2;
+        // 四個角
+        x1 = ballX - ballR;
+        x2 = ballX + ballR;                
+        y1 = ballY - ballR;
+        y2 = ballY + ballR;
+
+        // 是否擊中
+        if ((evt.clientX > x1) && (evt.clientX < x2)) {
+                if ((evt.clientY > y1) && (evt.clientY < y2)) {
+
+                        console.log("Hit.");
+                }
+        }
     }
 
 	return	{
